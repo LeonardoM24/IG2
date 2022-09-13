@@ -17,7 +17,7 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__) #inicializamos flask
 # conectamos a la base de datos
-app.config['MONGO_URI'] = 'mongodb+srv://Admin:TacosAlPastor123456789@cluster0.sismnd1.mongodb.net/IG2DB' 
+app.config['MONGO_URI'] = 'mongodb+srv://Admin:<password>@cluster0.sismnd1.mongodb.net/IG2DB' 
 
 mongo = PyMongo(app) #mongo es nuestra base de datos (mongo.db)
 #--------------------------------
