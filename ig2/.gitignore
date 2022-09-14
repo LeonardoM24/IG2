@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# Password
+../API/src/conectDB
+
 # Node
 /node_modules
 npm-debug.log

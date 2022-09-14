@@ -4,7 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+
 import { RouterModule, Routes } from '@angular/router';
+
 
 import { Milogin } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -28,7 +33,12 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+
+    ReactiveFormsModule,
+    HttpClientModule
+
     RouterModule.forRoot(routes)
+
   ],
   providers: [],
   bootstrap: [AppComponent]
