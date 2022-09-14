@@ -11,13 +11,15 @@ pasos:
 # pip install flask-pymongo          
 
 #librerias
-
+from conectDB import password # contraseña
 from flask import Flask, request
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 
 app = Flask(__name__) #inicializamos flask
+CORS(app)
 # conectamos a la base de datos
-app.config['MONGO_URI'] = 'mongodb+srv://Admin:<password>@cluster0.sismnd1.mongodb.net/IG2DB' 
+app.config['MONGO_URI'] = 'mongodb+srv://Admin:'+password+'@cluster0.sismnd1.mongodb.net/IG2DB' 
 
 mongo = PyMongo(app) #mongo es nuestra base de datos (mongo.db)
 #--------------------------------

@@ -36,23 +36,23 @@
             </div>
             <div class="col-lg-5 d-flex align-items-center justify-content-center gradient-custom-2">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <form>
+                <form [formGroup] = "signUp" (ngSubmit)="signUpSubmit()">
                   <h5>Sign up</h5>
                   <br>
                   
                   <div class="form-outline mb-4">
                     <input type="text" id="userregistro" class="form-control"
-                      placeholder="" />
+                      placeholder="" formControlName = "userregistro"/>
                     <label class="form-label" for="userregistro">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="correoregistro" class="form-control"/>
+                    <input type="email" id="correoregistro" class="form-control" formControlName = "correoregistro"/>
                     <label class="form-label" for="correoregistro">Email</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="passregistro" class="form-control" />
+                    <input type="password" id="passregistro" class="form-control" formControlName = "passregistro" />
                     <label class="form-label" for="passregistro">Password</label>
                   </div>
 
