@@ -8,7 +8,8 @@ pasos:
     
 ''' 
 # pip install flask pymongo  
-# pip install flask-pymongo          
+# pip install flask-pymongo      
+# pip install flask_cors    
 
 #librerias
 from conectDB import password # contraseña
