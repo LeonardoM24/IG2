@@ -37,7 +37,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
 
-    RouterModule.forRoot(routes)
+    
 
   ],
   providers: [],
