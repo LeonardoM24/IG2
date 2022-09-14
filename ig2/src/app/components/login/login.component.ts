@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class Milogin{
   constructor(private router:Router){}
 
