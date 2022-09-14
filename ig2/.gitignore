@@ -7,7 +7,7 @@
 /bazel-out
 
 # Password
-../API/src/conectDB.py
+../API/src/conectDB
 
 # Node
 /node_modules
