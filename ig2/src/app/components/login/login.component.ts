@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -6,7 +7,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class Milogin{
-  constructor() {
-    console.log("Sí salió")
+  constructor(private router:Router){}
+
+  goToPage(pageName:string):void{
+    this.router.navigate([`${pageName}`]);
   }
 }
