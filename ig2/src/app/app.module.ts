@@ -12,7 +12,8 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: Milogin },
-  { path: 'home', component: HomeComponent },
+  // { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomepageComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
@@ -20,8 +21,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     Milogin,
-    HomepageComponent,
-    HomeComponent
+    HomepageComponent
+    // HomeComponent
   ],
   imports: [
     BrowserModule,
