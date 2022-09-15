@@ -1,0 +1,20 @@
+.add-icon{
+    font-size: 30pt;
+    color:#0D6EFD;
+}
+
+.navbar-brand{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24pt ;
+    margin-left: 30px;
+    color: white;   
+}
+
+.navbar{
+    background-image: linear-gradient(to right, #D500F9, #FFD54F);
+}
+
+.margin-right{
+    margin-right: 30px;
+}
+
