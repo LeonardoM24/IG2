@@ -4,17 +4,15 @@ pasos:
     python -m venv venv             creamos el entorno virtual 
     venv\Scripts\activate           activamos el entorno vritual 
     pip install flask
-    pip install flask-pymongo
-    
+    pip install flask-pymongo    
+    pip install flask-cors      
+    pip install python-dotenv
+    pip install dnspython
+    pip install gunicorn
 ''' 
-# pip install flask pymongo  
-# pip install flask-pymongo    
-# pip install flask-cors      
+
 
 #librerias
-
-
-
 import os
 from dotenv import load_dotenv
 from flask import Flask, request
