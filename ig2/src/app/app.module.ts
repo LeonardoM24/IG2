@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { HttpClientModule } from "@angular/common/http";
+
+
 
 import { Milogin } from './components/login/login.component';
 import { FeedComponent } from './components/homepage/feed/feed.component';
@@ -30,7 +33,10 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+
+ 
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

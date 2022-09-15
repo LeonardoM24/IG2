@@ -13,22 +13,23 @@
                   <h3 class="mt-1 mb-5 pb-1">Instagram 2</h3>
                 </div>
 
-                <form>
+                <form [formGroup] = "logIn" (ngSubmit)="logInUser()">
                   <h5>Log in</h5>
                   <br>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="correologin" class="form-control"/>
+                    <input type="email" id="correologin" class="form-control" formControlName = "correologin"/>
                     <label class="form-label" for="correologin">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="passlogin" class="form-control" />
+                    <input type="password" id="passlogin" class="form-control" formControlName = "passlogin"/>
                     <label class="form-label" for="passlogin">Password</label>
                   </div>
 
                   <div class="text-center pt-1 mb-1 pb-1">
                     <button (click)="goToPage('home')" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
+          
                   </div>
                 </form>
 
@@ -36,28 +37,28 @@
             </div>
             <div class="col-lg-5 d-flex align-items-center justify-content-center gradient-custom-2">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <form>
+                <form [formGroup] = "signUp" (ngSubmit)="signUpSubmit()">
                   <h5>Sign up</h5>
                   <br>
                   
                   <div class="form-outline mb-4">
                     <input type="text" id="userregistro" class="form-control"
-                      placeholder="" />
+                      placeholder="" formControlName = "userregistro"/>
                     <label class="form-label" for="userregistro">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="correoregistro" class="form-control"/>
+                    <input type="email" id="correoregistro" class="form-control" formControlName = "correoregistro"/>
                     <label class="form-label" for="correoregistro">Email</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="passregistro" class="form-control" />
+                    <input type="password" id="passregistro" class="form-control" formControlName = "passregistro" />
                     <label class="form-label" for="passregistro">Password</label>
                   </div>
 
                   <div class="text-center pt-1 mb-1 pb-1">
-                    <button (click)="goToPage('Homepage')" class="btn btn-tertiary mb-1" data-mdb-ripple-color="light" type="submit">Sign up</button>
+                    <button  class="btn btn-tertiary mb-1" data-mdb-ripple-color="light" type="submit">Sign up</button>
                   </div>
                 </form>
               </div>
