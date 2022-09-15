@@ -1,0 +1,17 @@
+<div class="modal-body">
+    <h4>{{list[1].value}}</h4>
+    <form [formGroup]="itemform" (ngSubmit)="saveToList(itemform)">
+        <div class="col-md-6">
+            <label>Imagen</label>
+            <input type="text" class="form-control" formControlName="img" >
+            <label>Descripción</label>
+            <input type="text" class="form-control" formControlName="description">
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-outline-primary" type="submit">Save</button>
+            <button class="btn btn-outline-danger" type="button" (click)="closeModal()">Cancel</button>
+        </div>
+    </form>
+   
+    
+</div>

@@ -1,0 +1,31 @@
+.feed{
+    padding: 15px;
+}
+
+.row{
+    width: 100%;
+}
+
+.img-fluid {
+    width: 90%;
+    height: 70%;
+    max-height: 450px;
+    aspect-ratio: 4/5;
+    margin: 20px auto;
+}
+
+.card-body{
+    background-color:#D4FBF4; 
+}
+
+.card-edit{
+    padding: 5px;
+
+}
+
+.card-edit button{
+    padding-left: 5px;
+    color:#08b192;
+    font-size: 15pt;
+}
+

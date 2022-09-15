@@ -1,0 +1,29 @@
+<div class="feed">
+    
+    <div class="row row-cols-1 row-cols-md-3">
+        <div *ngFor="let img of imagenes">
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-edit">
+                        <button type="button" class="float-end btn" (click)="openModalDelete(img.id)">
+                            <fa-icon [icon] = "trashIcon" ></fa-icon>
+                        </button>
+                        <button type="button" class=" float-end btn" (click)="openModalModify(img.id)">
+                            <fa-icon [icon] = "editIcon" ></fa-icon>
+                        </button>
+                    </div>
+                    <img src="{{ img.image }}"  class="card-img-top img-fluid " alt="Imagen">
+
+                    
+                    <div class="card-body">
+                        <p class="card-text">{{ img.description }}</p>
+                        <p class="card-text"><small class="text-muted">{{ img.user }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+    </div>
+
+
+</div>

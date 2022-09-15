@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from '../app/components/homepage/homepage.component'
-import { Milogin } from '../app/components/login/login.component'
+import { Milogin } from '../app/components/login/login.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
   {
-    path:'Homepage', component: HomepageComponent,
-
-  },
-  {
-    path: '', component: Milogin
+    path: 'login', component: Milogin
+  },{
+    path: 'home', component: HomepageComponent
+  },{
+    path: '', redirectTo: '/login', pathMatch: 'full'
   }
 ];
 
