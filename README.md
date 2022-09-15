@@ -1,6 +1,6 @@
 # IG2
 
-LINK: https://inst2.000webhostapp.com/Homepage
+LINK: https://inst2.000webhostapp.com/
 
 
 Para que funcione debes correr la API de forma local
