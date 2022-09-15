@@ -13,8 +13,12 @@ pasos:
 
 #librerias
 
+
+
+
 from flask import Flask, request
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 from flask_cors import CORS
 
 app = Flask(__name__) #inicializamos flask
@@ -46,7 +50,7 @@ def create_user():
             {'username' : username,'email': email,'password': password}    
         )   #guardamos en la coleccion users
         response = {
-            'id' : str(id),
+            'id' : str(id.inserted_id),
             'username': username,
             'email': email,
             'password': password
@@ -113,7 +117,7 @@ def sub_img():
         {'username': username,'link': link, 'text': text}    
     )   #guardamos en la coleccion users
     response = {
-        'id' : str(id),
+        'id' : str(id.inserted_id),
         'username': username,
         'link': link,
         'text': text
@@ -130,15 +134,39 @@ def get_img():
     
     for data in datas:
         result.append({
-            '_id': str(data['_id']),
-            'username': data['username'],
-            'link': data['link'],
-            'text': data['text']
+            'id': str(data['_id']),
+            'user': data['username'],
+            'image': data['link'],
+            'description': data['text']
         })
     return result
 
 #================================================
 
+#--------------MOD IMG------------------
+@app.route('/mod/img', methods = ['POST'])
+def mod_img():
+    text = request.json['text']
+    link = request.json['link']
+    id = request.json['_id']
+    #linkAnterior = request.json['linkAnterior']
+    objInstance = ObjectId(id)
+    print('hola', text, id, link)
+    myquery = {'_id': objInstance}
+    newval = {"$set":{'text':text, 'link':link}}
+    mongo.db.img.update_one(myquery,newval, upsert = False)
+    return {'cambio': 'listo'}
+
+#=======================================
+
+#--------------DEL IMG-------------------
+@app.route('/del/img', methods = ['POST'])
+def del_img():
+    id = request.json['_id']
+    objID = ObjectId(id)
+    mongo.db.img.delete_one({"_id": objID})
+    return {'Request':'img eliminada'}
+#========================================
 
 if __name__ == "__main__":
     app.run(debug=True)  #debug True hace que cuando tengamos cambios se reinicie 
