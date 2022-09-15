@@ -14,12 +14,15 @@ export class AuthService{
 
         console.log('llamada a la api: ', user)
         
-        return this.http.post<any>(
+        return this.http.post(
             this.baseServerUrl + 'create/user',
             {
               username: user[0],
               email: user[1],
               password: user[2]  
+            },
+            {
+                responseType: 'json'
             }
         );
     }
@@ -31,8 +34,12 @@ export class AuthService{
             {
                 username: user[0],
                 password: user[1]
+            },
+            {
+                responseType: 'json'
             }
         );
+        
     }
 
 

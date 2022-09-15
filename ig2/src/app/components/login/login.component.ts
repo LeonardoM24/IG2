@@ -22,10 +22,70 @@ export class Milogin{
   });
 
   signUpSubmit(){
-    console.log(this.signUp.value)
+    this.SignUpAuth.regUser([this.signUp.value.userregistro, this.signUp.value.correoregistro, this.signUp.value.passregistro]).subscribe(
+      (response) =>{
+        
+        if("ERROR" in response){
+          console.log(response)
 
-    this.SignUpAuth.regUser([this.signUp.value.userregistro, this.signUp.value.correoregistro, this.signUp.value.passregistro]).subscribe();
+          type ObjectKey = keyof typeof response;
+          const myKey = 'ERROR' as ObjectKey;
+          window.alert(response[myKey]);
 
+        }
+        else{
+          console.log('No hay error')
+        }
+  
+      },
+      (error) => {
+        console.log('ERROR in request (frontend)', error)
+      },
+      () => {
+        console.log('request completed')
+      }
+    );
+    
+  }
+
+  logIn = new FormGroup({
+    correologin: new FormControl(),
+    passlogin: new FormControl()
+  });
+
+  
+
+  logInUser(){
+    this.SignUpAuth.logInUser([this.logIn.value.correologin, this.logIn.value.passlogin]).subscribe(
+      (response) => {
+        if('ERROR' in response){
+          console.log(response)
+
+          type ObjectKey = keyof typeof response;
+          const myKey = 'ERROR' as ObjectKey;
+          window.alert(response[myKey]);
+        }else{
+          console.log(response)
+
+          type ObjectKey = keyof typeof response;
+
+          const id = '_id' as ObjectKey;
+          const name = 'username' as ObjectKey;
+          const email = 'email' as ObjectKey;
+          localStorage.setItem('username', response[name]);
+          localStorage.setItem('id', response[id]);
+          localStorage.setItem('email', response[email]);
+          this.goToPage('Homepage');
+        }
+      },
+      (error) => {
+        console.log('ERROR' + error)
+      },
+      () =>{
+        console.log('request completed')
+      } 
+
+    )
   }
 
 }
