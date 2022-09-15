@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'login', component: Milogin
   },{
-    path: 'home', component: HomepageComponent
+    path: 'Homepage', component: HomepageComponent
   },{
     path: '', redirectTo: '/login', pathMatch: 'full'
   }

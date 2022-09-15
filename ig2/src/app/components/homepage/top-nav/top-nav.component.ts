@@ -3,6 +3,8 @@ import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import { PostAddComponent } from 'src/app/components/homepage/post-add/post-add.component';
 import { imagenes } from 'src/app/components/homepage/feed/imagenes';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-top-nav',
@@ -11,14 +13,20 @@ import { imagenes } from 'src/app/components/homepage/feed/imagenes';
 })
 
 export class TopNavComponent implements OnInit {
-
+  constructor(private modalService: BsModalService, private apiService: AuthService) { }
+  
   imagenes = imagenes;
   addIcon = faSquarePlus;
   bsModalRef!: BsModalRef;
   titleAdd = "Add Post";
-  
-  constructor(private modalService: BsModalService) { }
 
+  imgs = this.apiService.getAllImg().subscribe(
+    (resp) => {
+      this.imagenes = JSON.parse(resp) 
+    }
+  )
+
+  
   ngOnInit(): void {
   }
 
@@ -34,12 +42,10 @@ export class TopNavComponent implements OnInit {
     this.bsModalRef.content.closeBtnName = 'Close'; 
 
     this.bsModalRef.content.event.subscribe((res : any) => {
-      this.imagenes.push({
-        id: this.imagenes.length + 1 ,
-        user: "user1453654",
-        description: res.data.description,
-        image: res.data.img,
-      });
+      
+      var xd = this.apiService.upPost([localStorage.getItem('username')!, res.data.img, res.data.description]).subscribe();
+
+      window.location.reload()  
     });
   }
 
