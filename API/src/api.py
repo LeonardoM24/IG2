@@ -15,7 +15,8 @@ pasos:
 
 
 
-
+import os
+from dotenv import load_dotenv
 from flask import Flask, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -24,7 +25,8 @@ from flask_cors import CORS
 app = Flask(__name__) #inicializamos flask
 CORS(app)
 # conectamos a la base de datos
-app.config['MONGO_URI'] = 'mongodb+srv://Admin:TacosAlPastor12345678910@cluster0.sismnd1.mongodb.net/IG2DB' 
+load_dotenv()
+app.config['MONGO_URI'] = 'mongodb+srv://Admin:'+ os.getenv('password')+ '@cluster0.sismnd1.mongodb.net/IG2DB' 
 
 mongo = PyMongo(app) #mongo es nuestra base de datos (mongo.db)
 #--------------------------------
