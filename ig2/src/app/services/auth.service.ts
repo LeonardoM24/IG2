@@ -42,5 +42,53 @@ export class AuthService{
         
     }
 
+    getAllImg(){
+        return this.http.get(
+            this.baseServerUrl + 'get/img',
+            {responseType: 'text'}
+        )
+    }
+
+    updatePost(change: Array<string>){
+        console.log(change)
+        return this.http.post(
+            this.baseServerUrl + 'mod/img',
+            {
+                text: change[0],
+                link: change[1],
+                _id: change[2]
+            },
+            {
+                responseType: 'text'
+            }
+        )
+    }
+
+    deletePost(id: number){
+
+        return this.http.post(
+            this.baseServerUrl + 'del/img',
+            {
+                _id: id
+            },
+            {
+                responseType: 'text'
+            }
+        )
+    }
+
+    upPost(data: Array<string>){
+        return this.http.post(
+            this.baseServerUrl + 'subir/img',
+            {
+                username: data[0],
+                link: data[1],
+                text: data[2]
+            },
+            {
+                responseType: "text"
+            }
+        )
+    }
 
 }
